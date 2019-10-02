@@ -10,6 +10,23 @@ namespace PartyInvites.Controllers
     {
         public IActionResult Index()
         {
+            String message;
+
+            DateTime now = DateTime.Now;
+            
+            if(now.Hour > 6 && now.Hour < 12)
+            {
+                message = "Good Morning";
+            }else if(now.Hour >= 12 && now.Hour < 20)
+            {
+                message = "Good Afternoon";
+            }
+            else
+            {
+                message = "Good Night";
+            }
+
+            ViewBag.Message = message;
             return View();
         }
 
