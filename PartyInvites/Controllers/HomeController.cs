@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PartyInvites.Models;
 
+
 namespace PartyInvites.Controllers
 {
     public class HomeController : Controller
@@ -50,7 +51,8 @@ namespace PartyInvites.Controllers
         
         public IActionResult GuestList()
         {
-            return View(Repository.GuestResponses());
+            var responses = Repository.GuestResponses().Where(r => r.WillAttend == true);
+            return View(responses);
         }
     }
 }

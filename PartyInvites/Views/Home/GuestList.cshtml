@@ -1,15 +1,17 @@
-﻿@model List<GuestResponse>
+﻿@model IEnumerable<GuestResponse>
 @{
     ViewData["Title"] = "GuestList";
 }
 
 <h1>Guest List </h1>
 
-<p>So far @Model.Count person(s) are comming to the party</p>
+<p>So far @Model.Count() person(s) are comming to the party</p>
 
-@if (Model.Count == 0)
+@if (Model.Count() == 0)
 {
     <p>Be the first to register and I will offer you a drink</p>
+    <hr />
+    <a asp-action="Register">Register</a>
 }
 else
 {
