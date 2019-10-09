@@ -1,4 +1,4 @@
-﻿
+﻿@model GuestResponse
 @{
     ViewData["Title"] = "ThankYou";
 }
@@ -6,8 +6,18 @@
 <h1>ThankYou</h1>
 <div class="alert alert-info" role="alert">
     <h4 class="alert-heading"> Thank you!</h4>
-    <p>Thank you for registering</p>
-    
-    <a class="btn btn-primary" type="button"a asp-action="Index">Go Back</a>
+    <p>Thank you @Model.Name for registering</p>
+    @if (Model.WillAttend == true)
+    {
+        @: Thank you. See you soon at the party.
+    }else if(Model.WillAttend == false)
+    {
+        @:Thank you. Sorry to hear that. Hope to see you in the next party!
+    }
+    else
+    {
+        @: Thank you. Please give me a call as soon as you know.
+    }
+    <a class="btn btn-primary" type="button" asp-action="Index">Go Back</a>
 </div>
 
