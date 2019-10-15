@@ -8,13 +8,13 @@ namespace PartyInvites.Models
 {
     public class GuestResponse
     {
-        [Required]
+        [Required(ErrorMessage ="Please enter your name")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your Email adress")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter your phone number")]
         public string Phone { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please tell us if you are comming to the party")]
         public bool? WillAttend { get; set; }
     }
 }
